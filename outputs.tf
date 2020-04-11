@@ -28,6 +28,11 @@ output "cluster_security_group_id" {
   value       = local.cluster_security_group_id
 }
 
+output "fargate_security_group_id" {
+  description = "Security group associated with fargate"
+  value = aws_eks_cluster.this[0].vpc_config[0].cluster_security_group_id
+}
+
 output "config_map_aws_auth" {
   description = "A kubernetes configuration to authenticate to this EKS cluster."
   value       = kubernetes_config_map.aws_auth.*
