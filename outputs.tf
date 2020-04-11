@@ -3,6 +3,10 @@ output "cluster_id" {
   value       = element(concat(aws_eks_cluster.this.*.id, list("")), 0)
 }
 
+output "cluster_name" {
+  description = "The name of the EKS cluster"
+  value = var.cluster_name
+}
 output "cluster_arn" {
   description = "The Amazon Resource Name (ARN) of the cluster."
   value       = element(concat(aws_eks_cluster.this.*.arn, list("")), 0)
