@@ -57,6 +57,11 @@ output "cluster_oidc_issuer_url" {
   value       = flatten(concat(aws_eks_cluster.this[*].identity[*].oidc.0.issuer, [""]))[0]
 }
 
+output "cluster_oidc_issuer_arn" {
+  description = "The ARN on the EKS cluster OIDC Issuer"
+  value       = flatten(concat(aws_eks_cluster.this[*].identity[*].oidc.0.arn, [""]))[0]
+}
+
 output "cloudwatch_log_group_name" {
   description = "Name of cloudwatch log group created"
   value       = aws_cloudwatch_log_group.this[*].name
